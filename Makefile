@@ -11,7 +11,7 @@ TOOLS=tools
 
 DEP=$(SHARED)/timer.o $(SHARED)/argument_parsing.o $(SHARED)/graph.o $(SHARED)/subgraph.o $(SHARED)/partitioner.o $(SHARED)/subgraph_generator.o $(SHARED)/gpu_kernels.o $(SHARED)/egraph_utilities.o $(SHARED)/test.o  
 
-all: make1 make2 make3  sssp-async cc-async bfs-async #sswp-async bfs-sync cc-sync sssp-sync sswp-sync bfs-async 
+all: make1 make2 make3  sssp-TGP cc-TGP bfs-TGP #sswp-async bfs-sync cc-sync sssp-sync sswp-sync bfs-async 
 
 make1:
 	make -C $(SHARED)
@@ -35,14 +35,14 @@ make3:
 # sswp-sync: $(EGRAPH)/sswp-sync.o $(DEP)
 # 	$(NC) $(EGRAPH)/sswp-sync.o $(DEP) -o sswp-sync $(CFLAGS) $(NFLAGS)
 
-bfs-async: $(EGRAPH)/bfs-async.o $(DEP)
-	$(NC) $(EGRAPH)/bfs-async.o $(DEP) -o bfs-async $(CFLAGS) $(NFLAGS)	
+bfs-async: $(EGRAPH)/bfs-TGP.o $(DEP)
+	$(NC) $(EGRAPH)/bfs-TGP.o $(DEP) -o bfs-TGP $(CFLAGS) $(NFLAGS)	
 	
-cc-async: $(EGRAPH)/cc-async.o $(DEP)
-	$(NC) $(EGRAPH)/cc-async.o $(DEP) -o cc-async $(CFLAGS) $(NFLAGS)		
+cc-async: $(EGRAPH)/cc-TGP.o $(DEP)
+	$(NC) $(EGRAPH)/cc-TGP.o $(DEP) -o cc-TGP $(CFLAGS) $(NFLAGS)		
 	
-sssp-async: $(EGRAPH)/sssp-async.o $(DEP)
-	$(NC) $(EGRAPH)/sssp-async.o $(DEP) -o sssp-async $(CFLAGS) $(NFLAGS)	
+sssp-async: $(EGRAPH)/sssp-TGP.o $(DEP)
+	$(NC) $(EGRAPH)/sssp-TGP.o $(DEP) -o sssp-TGP $(CFLAGS) $(NFLAGS)	
 
 # sswp-async: $(EGRAPH)/sswp-async.o $(DEP)
 # 	$(NC) $(EGRAPH)/sswp-async.o $(DEP) -o sswp-async $(CFLAGS) $(NFLAGS)	
@@ -51,4 +51,4 @@ clean:
 	make -C $(SHARED) clean
 	make -C $(EGRAPH) clean
 	make -C $(TOOLS) clean
-	rm -f bfs-sync cc-sync sssp-sync sswp-sync bfs-async cc-async sssp-async sswp-async
+	rm -f bfs-TGP cc-TGP sssp-TGP sswp-TGP

@@ -6,32 +6,19 @@ NFLAGS=-arch=sm_50
 
 SHARED=../shared
 
-all:  sssp-async.o cc-async.o bfs-async.o#sswp-async.o bfs-sync.o cc-sync.o sssp-sync.o sswp-sync.o bfs-async.o cc-async.o
+all:  sssp-TGP.o cc-TGP.o bfs-TGP.o
 
-
-# bfs-sync.o: bfs-sync.cu
-# 	$(NC) -c bfs-sync.cu $(CFLAGS) $(NFLAGS)
 	
-# cc-sync.o: cc-sync.cu
-# 	$(NC) -c cc-sync.cu $(CFLAGS) $(NFLAGS)	
+bfs-TGP.o: bfs-TGP.cu
+	$(NC) -c bfs-TGP.cu $(CFLAGS) $(NFLAGS)		
 
-# sssp-sync.o: sssp-sync.cu
-# 	$(NC) -c sssp-sync.cu $(CFLAGS) $(NFLAGS)	
-
-# sswp-sync.o: sswp-sync.cu
-# 	$(NC) -c sswp-sync.cu $(CFLAGS) $(NFLAGS)
-	
-bfs-async.o: bfs-async.cu
-	$(NC) -c bfs-async.cu $(CFLAGS) $(NFLAGS)		
-
-cc-async.o: cc-async.cu
-	$(NC) -c cc-async.cu $(CFLAGS) $(NFLAGS)
+cc-TGP.o: cc-TGP.cu
+	$(NC) -c cc-TGP.cu $(CFLAGS) $(NFLAGS)
 		
-sssp-async.o: sssp-async.cu
-	$(NC) -c sssp-async.cu $(CFLAGS) $(NFLAGS)		
+sssp-TGP.o: sssp-TGP.cu
+	$(NC) -c sssp-TGP.cu $(CFLAGS) $(NFLAGS)		
 
-# sswp-async.o: sswp-async.cu
-# 	$(NC) -c sswp-async.cu $(CFLAGS) $(NFLAGS)	
-			
+sswp-TGP.o: sswp-TGP.cu
+	$(NC) -c sswp-TGP.cu $(CFLAGS) $(NFLAGS)
 clean:
 	rm  *.o 
