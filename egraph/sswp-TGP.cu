@@ -8,7 +8,8 @@
 #include "../shared/gpu_error_check.cuh"
 #include "../shared/gpu_kernels.cuh"
 #include "../shared/egraph_utilities.hpp"
-
+#include "../shared/test.cuh"
+#include "../shared/test.cu"
 
 int main(int argc, char** argv)
 {

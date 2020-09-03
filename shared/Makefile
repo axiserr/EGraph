@@ -4,8 +4,7 @@ CFLAGS=-std=c++11 -O3
 NFLAGS=-arch=sm_50
 
 
-all: timer.o argument_parsing.o graph.o subgraph.o partitioner.o subgraph_generator.o gpu_kernels.o egraph_utilities.o test.o
-
+all: timer.o argument_parsing.o graph.o subgraph.o partitioner.o subgraph_generator.o gpu_kernels.o egraph_utilities.o
 
 timer.o: timer.cpp
 	$(CC) -c timer.cpp -o timer.o $(CFLAGS)
@@ -30,9 +29,6 @@ gpu_kernels.o: gpu_kernels.cu
 
 egraph_utilities.o: egraph_utilities.cpp
 	$(CC) -c egraph_utilities.cpp -o egraph_utilities.o $(CFLAGS)
-
-test.o: test.cu
-	$(NC) -c test.cu -o test.o $(CFLAGS) $(NFLAGS)
 
 clean:
 	rm *.o

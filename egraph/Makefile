@@ -6,8 +6,7 @@ NFLAGS=-arch=sm_50
 
 SHARED=../shared
 
-all:  sssp-TGP.o cc-TGP.o bfs-TGP.o
-
+all:  sssp-TGP.o cc-TGP.o bfs-TGP.o sswp-TGP.o
 	
 bfs-TGP.o: bfs-TGP.cu
 	$(NC) -c bfs-TGP.cu $(CFLAGS) $(NFLAGS)		
