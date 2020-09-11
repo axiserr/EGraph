@@ -17,4 +17,3 @@ The applications take a graph as input as well as some optional arguments. For e
 ```
 $ ./sssp-TGP --input path-to-input-graph
 $ ./sssp-TGP --input path-to-input-graph --source 10
-```
