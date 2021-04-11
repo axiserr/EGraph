@@ -27,9 +27,6 @@ int main(int argc, char** argv)
 	Graph<OutEdge> graph(arguments.input, true);
 	graph.ReadGraph();
 	
-	float readtime = timer.Finish();
-	cout << "Graph Reading finished in " << readtime/1000 << " (s).\n";
-	
 	//for(unsigned int i=0; i<100; i++)
 	//	cout << graph.edgeList[i].end << " " << graph.edgeList[i].w8;
 
@@ -141,6 +138,8 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaMemcpyAsync(graph.d_label5555, graph.label1, graph.num_nodes * sizeof(bool), cudaMemcpyHostToDevice, stream7));
 
 	cudaDeviceSynchronize();
+	float readtime = timer.Finish();
+	cout << "Graph Reading finished in " << readtime/1000 << " (s).\n";
 	Partitioner<OutEdge> partitioner;
 	//printf("*****************##############\n");
 
